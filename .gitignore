@@ -1,0 +1,5 @@
+# Paper PDFs (kept local, not published to GitHub)
+*.pdf
+
+# macOS
+.DS_Store
