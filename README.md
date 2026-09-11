@@ -7,16 +7,14 @@
 
 A curated list of papers on **reinforcement learning post-training** for large language models — from the foundations of RLHF, through preference optimization (DPO family) and RL training frameworks (GRPO family), to the reasoning-RL milestones and frontier-model technical reports.
 
-> 本清单整理了 35 篇 LLM 后训练（post-training）强化学习论文，按主题分类，附 arXiv 链接、完整作者与会议信息，并标注官方开源实现。
-
 ## Contents
 
-1. [Foundations of RLHF（RLHF 奠基）](#1-foundations-of-rlhfrlhf-奠基)
-2. [Preference Optimization · DPO Family（偏好优化 · DPO 系）](#2-preference-optimization--dpo-family偏好优化--dpo-系)
-3. [RL Training Frameworks · GRPO Family（RL 训练框架 · GRPO 系）](#3-rl-training-frameworks--grpo-familyrl-训练框架--grpo-系)
-4. [Reasoning RL Milestones（推理 RL 里程碑）](#4-reasoning-rl-milestones推理-rl-里程碑)
-5. [Frontier Model Technical Reports（前沿模型技术报告）](#5-frontier-model-technical-reports前沿模型技术报告)
-6. [Accepted at Top Conferences（已录用顶会）](#6-accepted-at-top-conferences已录用顶会)
+1. [Foundations of RLHF](#1-foundations-of-rlhf)
+2. [Preference Optimization · DPO Family](#2-preference-optimization--dpo-family)
+3. [RL Training Frameworks · GRPO Family](#3-rl-training-frameworks--grpo-family)
+4. [Reasoning RL Milestones](#4-reasoning-rl-milestones)
+5. [Frontier Model Technical Reports](#5-frontier-model-technical-reports)
+6. [Accepted at Top Conferences](#6-accepted-at-top-conferences)
 7. [Contributing](#contributing)
 
 ## Overview
@@ -33,7 +31,7 @@ A curated list of papers on **reinforcement learning post-training** for large l
 
 ---
 
-## 1. Foundations of RLHF（RLHF 奠基）
+## 1. Foundations of RLHF
 
 The canonical recipe — supervised fine-tuning, reward modeling, and RL — that started it all.
 
@@ -41,7 +39,7 @@ The canonical recipe — supervised fine-tuning, reward modeling, and RL — tha
 - **[Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073)** — Yuntao Bai, Saurav Kadavath, Sandipan Kundu, Amanda Askell, Jackson Kernion, Andy Jones, Anna Chen, Anna Goldie, Azalia Mirhoseini, Cameron McKinnon, Carol Chen, Catherine Olsson, Christopher Olah, Danny Hernandez, Dawn Drain, Deep Ganguli, Dustin Li, Eli Tran-Johnson, Ethan Perez, Jamie Kerr, Jared Mueller, Jeffrey Ladish, Joshua Landau, Kamal Ndousse, Kamile Lukosuite, Liane Lovitt, Michael Sellitto, Nelson Elhage, Nicholas Schiefer, Noemi Mercado, Nova DasSarma, Robert Lasenby, Robin Larson, Sam Ringer, Scott Johnston, Shauna Kravec, Sheer El Showk, Stanislav Fort, Tamera Lanham, Timothy Telleen-Lawton, Tom Conerly, Tom Henighan, Tristan Hume, Samuel R. Bowman, Zac Hatfield-Dodds, Ben Mann, Dario Amodei, Nicholas Joseph, Sam McCandlish, Tom Brown, Jared Kaplan. *2022*. Trains a harmless assistant via **RLAIF** — AI feedback governed by a written "constitution" of principles instead of human labels.
 - **[RLAIF vs. RLHF: Scaling Reinforcement Learning from Human Feedback with AI Feedback](https://arxiv.org/abs/2309.00267)** — Harrison Lee, Samrat Phatale, Hassan Mansoor, Thomas Mesnard, Johan Ferret, Kellie Lu, Colton Bishop, Ethan Hall, Victor Carbune, Abhinav Rastogi, Sushant Prakash. *ICML 2024*. Shows AI-generated preferences can rival human preferences for RL, making alignment scalable beyond human annotation.
 
-## 2. Preference Optimization · DPO Family（偏好优化 · DPO 系）
+## 2. Preference Optimization · DPO Family
 
 Direct / closed-form alignment objectives that sidestep the reward model + PPO machinery.
 
@@ -54,7 +52,7 @@ Direct / closed-form alignment objectives that sidestep the reward model + PPO m
 - **[Nemotron-4 340B Technical Report](https://arxiv.org/abs/2406.11704)** — NVIDIA. *2024*. Open 340B base/instruct/reward models; demonstrates HelpSteer2 reward modeling and iterative DPO for alignment.
 - **[GDPO: Group reward-Decoupled Normalization Policy Optimization for Multi-reward RL Optimization](https://arxiv.org/abs/2601.05242)** — Shih-Yang Liu, Xin Dong, Ximing Lu, Shizhe Diao, Peter Belcak, Mingjie Liu, Min-Hung Chen, Hongxu Yin, Yu-Chiang Frank Wang, Kwang-Ting Cheng, Yejin Choi, Jan Kautz, Pavlo Molchanov. *2026*. Decouples multi-reward signals per group and normalizes them before optimization to stabilize multi-objective RL.
 
-## 3. RL Training Frameworks · GRPO Family（RL 训练框架 · GRPO 系）
+## 3. RL Training Frameworks · GRPO Family
 
 Critic-free policy-gradient methods, training systems, and efficiency/stability tricks built around GRPO and its relatives.
 
@@ -73,7 +71,7 @@ Critic-free policy-gradient methods, training systems, and efficiency/stability 
 - **[Spend Your Rollouts Where It Counts: Rollout Allocation for Group-Based RL Post-Training](https://arxiv.org/abs/2605.26606)** — Woojeong Kim, Ziyi Yang, Jing Nathan Yan, Jialu Liu. *2026*. Dynamically allocates the rollout budget toward where it improves group-based RL the most.
 - **[Distilled Reinforcement Learning for LLM Post-training](https://arxiv.org/abs/2607.17247)** — Chen Wang, Zhaochun Li, Jionghao Bai, Yining Zhang, Hexuan Deng, Ge Lan, Yue Wang. *2026*. Distills RL post-training signals into efficient LLM alignment.
 
-## 4. Reasoning RL Milestones（推理 RL 里程碑）
+## 4. Reasoning RL Milestones
 
 Landmark models showing RL alone can unlock emergent reasoning.
 
@@ -81,7 +79,7 @@ Landmark models showing RL alone can unlock emergent reasoning.
 - **[DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948)** — DeepSeek-AI. *2025*. Pure-RL "aha moment" via **R1-Zero**, then the multi-stage **R1** pipeline with distilled open models. · [code](https://github.com/deepseek-ai/DeepSeek-R1)
 - **[Open-Reasoner-Zero: An Open Source Approach to Scaling Up Reinforcement Learning on the Base Model](https://arxiv.org/abs/2503.24290)** — Jingcheng Hu, Yinmin Zhang, Qi Han, Daxin Jiang, Xiangyu Zhang, Heung-Yeung Shum. *2025*. Open-source reproduction of R1-Zero-style base-model RL scaling, achieving strong reasoning. · [code](https://github.com/Open-Reasoner-Zero/Open-Reasoner-Zero)
 
-## 5. Frontier Model Technical Reports（前沿模型技术报告）
+## 5. Frontier Model Technical Reports
 
 Recent frontier-model reports describing post-training at scale.
 
@@ -89,7 +87,7 @@ Recent frontier-model reports describing post-training at scale.
 - **[DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence](https://arxiv.org/abs/2606.19348)** — DeepSeek-AI. *2026*. Frontier report on a highly efficient million-token-context model.
 - **[Kimi K3: Open Frontier Intelligence](https://arxiv.org/abs/2607.24653)** — Kimi Team. *2026*. Open frontier intelligence model report.
 
-## 6. Accepted at Top Conferences（已录用顶会）
+## 6. Accepted at Top Conferences
 
 Papers accepted at top-tier venues.
 
