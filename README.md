@@ -1,10 +1,13 @@
 # Awesome Post-Training RL for LLMs
 
+[![Papers](https://img.shields.io/badge/papers-35-blue)](./README.md)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](./LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
+[![Topics: RLHF | DPO | GRPO](https://img.shields.io/badge/topics-RLHF%20%7C%20DPO%20%7C%20GRPO-orange)](./README.md)
+
 A curated list of papers on **reinforcement learning post-training** for large language models — from the foundations of RLHF, through preference optimization (DPO family) and RL training frameworks (GRPO family), to the reasoning-RL milestones and frontier-model technical reports.
 
-> 本清单整理了 35 篇 LLM 后训练（post-training）强化学习论文，按主题分类，附 arXiv 链接、完整作者与会议信息。目录结构与本仓库的论文文件夹一一对应。
-
----
+> 本清单整理了 35 篇 LLM 后训练（post-training）强化学习论文，按主题分类，附 arXiv 链接、完整作者与会议信息，并标注官方开源实现。
 
 ## Contents
 
@@ -14,6 +17,19 @@ A curated list of papers on **reinforcement learning post-training** for large l
 4. [Reasoning RL Milestones（推理 RL 里程碑）](#4-reasoning-rl-milestones推理-rl-里程碑)
 5. [Frontier Model Technical Reports（前沿模型技术报告）](#5-frontier-model-technical-reports前沿模型技术报告)
 6. [Accepted at Top Conferences（已录用顶会）](#6-accepted-at-top-conferences已录用顶会)
+7. [Contributing](#contributing)
+
+## Overview
+
+| Category | Papers | Key methods |
+|---|---|---|
+| Foundations of RLHF | 3 | PPO, RLAIF |
+| Preference Optimization · DPO Family | 8 | DPO, SPIN, KTO, ORPO, SimPO |
+| RL Training Frameworks · GRPO Family | 14 | GRPO, RLOO, RLVR, DAPO |
+| Reasoning RL Milestones | 3 | R1-Zero, long-CoT |
+| Frontier Model Technical Reports | 3 | GLM-5, DeepSeek-V4, Kimi K3 |
+| Accepted at Top Conferences | 4 | ACL 2026, ICLR 2026 |
+| **Total** | **35** | |
 
 ---
 
@@ -29,7 +45,7 @@ The canonical recipe — supervised fine-tuning, reward modeling, and RL — tha
 
 Direct / closed-form alignment objectives that sidestep the reward model + PPO machinery.
 
-- **[Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290)** — Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher D. Manning, Chelsea Finn. *NeurIPS 2023*. **DPO** replaces reward-model + PPO with a single closed-form objective over preference pairs.
+- **[Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290)** — Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher D. Manning, Chelsea Finn. *NeurIPS 2023*. **DPO** replaces reward-model + PPO with a single closed-form objective over preference pairs. · [code](https://github.com/eric-mitchell/direct-preference-optimization)
 - **[Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models](https://arxiv.org/abs/2401.01335)** — Zixiang Chen, Yihe Deng, Huizhuo Yuan, Kaixuan Ji, Quanquan Gu. *ICML 2024*. **SPIN** iteratively refines a model using its own generated responses as the losing half of preference pairs.
 - **[Self-Rewarding Language Models](https://arxiv.org/abs/2401.10020)** — Weizhe Yuan, Richard Yuanzhe Pang, Kyunghyun Cho, Xian Li, Sainbayar Sukhbaatar, Jing Xu, Jason Weston. *2024*. Trains LMs to act as their own judge (**LLM-as-a-Judge**), iteratively improving both instruction following and reward modeling.
 - **[KTO: Model Alignment as Prospect Theoretic Optimization](https://arxiv.org/abs/2402.01306)** — Kawin Ethayarajh, Winnie Xu, Niklas Muennighoff, Dan Jurafsky, Douwe Kiela. *ICML 2024*. Aligns from binary good/bad signals via prospect theory rather than paired preferences, cutting data requirements.
@@ -42,9 +58,9 @@ Direct / closed-form alignment objectives that sidestep the reward model + PPO m
 
 Critic-free policy-gradient methods, training systems, and efficiency/stability tricks built around GRPO and its relatives.
 
-- **[DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300)** — Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, Y. K. Li, Y. Wu, Daya Guo. *2024*. Introduces **GRPO** (Group Relative Policy Optimization) for math reasoning, removing the critic model.
+- **[DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300)** — Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, Y. K. Li, Y. Wu, Daya Guo. *2024*. Introduces **GRPO** (Group Relative Policy Optimization) for math reasoning, removing the critic model. · [code](https://github.com/deepseek-ai/DeepSeek-Math)
 - **[Teaching Large Language Models to Reason with Reinforcement Learning](https://arxiv.org/abs/2403.04642)** — Alex Havrilla, Yuqing Du, Sharath Chandra Raparthy, Christoforos Nalmpantis, Jane Dwivedi-Yu, Maksym Zhuravinskyi, Eric Hambro, Sainbayar Sukhbaatar, Roberta Raileanu. *2024*. "Back to Basics" — highlights **RLOO** as a simple low-variance alternative to PPO, and explores RL without a cold-start SFT stage.
-- **[Tulu 3: Pushing Frontiers in Open Language Model Post-Training](https://arxiv.org/abs/2411.15124)** — Nathan Lambert, Jacob Morrison, Valentina Pyatkin, Shengyi Huang, Hamish Ivison, Faeze Brahman, Lester James V. Miranda, Alisa Liu, Nouha Dziri, Shane Lyu, Yuling Gu, Saumya Malik, Victoria Graf, Jena D. Hwang, Jiangjiang Yang, Ronan Le Bras, Oyvind Tafjord, Chris Wilhelm, Luca Soldaini, Noah A. Smith, Yizhong Wang, Pradeep Dasigi, Hannaneh Hajishirzi. *2024*. A fully open post-training recipe (SFT → DPO → **RLVR**) with infrastructure, data, and evaluation for open models.
+- **[Tulu 3: Pushing Frontiers in Open Language Model Post-Training](https://arxiv.org/abs/2411.15124)** — Nathan Lambert, Jacob Morrison, Valentina Pyatkin, Shengyi Huang, Hamish Ivison, Faeze Brahman, Lester James V. Miranda, Alisa Liu, Nouha Dziri, Shane Lyu, Yuling Gu, Saumya Malik, Victoria Graf, Jena D. Hwang, Jiangjiang Yang, Ronan Le Bras, Oyvind Tafjord, Chris Wilhelm, Luca Soldaini, Noah A. Smith, Yizhong Wang, Pradeep Dasigi, Hannaneh Hajishirzi. *2024*. A fully open post-training recipe (SFT → DPO → **RLVR**) with infrastructure, data, and evaluation for open models. · [code](https://github.com/allenai/open-instruct)
 - **[REINFORCE++: Stabilizing Critic-Free Policy Optimization with Global Advantage Normalization](https://arxiv.org/abs/2501.03262)** — Jian Hu, Jason Klein Liu, Haotian Xu, Wei Shen. *2025*. Stabilizes critic-free policy optimization via global advantage normalization, improving GRPO-style training.
 - **[DAPO: An Open-Source LLM Reinforcement Learning System at Scale](https://arxiv.org/abs/2503.14476)** — Qiying Yu, Zheng Zhang, Ruofei Zhu, Yufeng Yuan, Xiaochen Zuo, Yu Yue, Weinan Dai, Tiantian Fan, Gaohong Liu, Lingjun Liu, Xin Liu, Haibin Lin, Zhiqi Lin, Bole Ma, Guangming Sheng, Yuxuan Tong, Chi Zhang, Mofan Zhang, Wang Zhang, Hang Zhu, Jinhua Zhu, Jiaze Chen, Jiangjie Chen, Chengyi Wang, Hongli Yu, Yuxuan Song, Xiangpeng Wei, Hao Zhou, Jingjing Liu, Wei-Ying Ma, Ya-Qin Zhang, Lin Yan, Mu Qiao, Yonghui Wu, Mingxuan Wang. *2025*. Open large-scale RL system with decoupled clip-higher and dynamic sampling to fix GRPO's entropy-collapse issues.
 - **[GRPO-CARE: Consistency-Aware Reinforcement Learning for Multimodal Reasoning](https://arxiv.org/abs/2506.16141)** — Yi Chen, Yuying Ge, Rui Wang, Yixiao Ge, Junhao Cheng, Ying Shan, Xihui Liu. *2025*. Adds a consistency-aware objective to GRPO for multimodal reasoning, mitigating hallucination.
@@ -61,9 +77,9 @@ Critic-free policy-gradient methods, training systems, and efficiency/stability 
 
 Landmark models showing RL alone can unlock emergent reasoning.
 
-- **[Kimi k1.5: Scaling Reinforcement Learning with LLMs](https://arxiv.org/abs/2501.12599)** — Kimi Team. *2025*. Scales RL (long-CoT, RLVR, curriculum, long2short) to rival frontier reasoning models.
-- **[DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948)** — DeepSeek-AI. *2025*. Pure-RL "aha moment" via **R1-Zero**, then the multi-stage **R1** pipeline with distilled open models.
-- **[Open-Reasoner-Zero: An Open Source Approach to Scaling Up Reinforcement Learning on the Base Model](https://arxiv.org/abs/2503.24290)** — Jingcheng Hu, Yinmin Zhang, Qi Han, Daxin Jiang, Xiangyu Zhang, Heung-Yeung Shum. *2025*. Open-source reproduction of R1-Zero-style base-model RL scaling, achieving strong reasoning.
+- **[Kimi k1.5: Scaling Reinforcement Learning with LLMs](https://arxiv.org/abs/2501.12599)** — Kimi Team. *2025*. Scales RL (long-CoT, RLVR, curriculum, long2short) to rival frontier reasoning models. · [code](https://github.com/MoonshotAI/Kimi-k1.5)
+- **[DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948)** — DeepSeek-AI. *2025*. Pure-RL "aha moment" via **R1-Zero**, then the multi-stage **R1** pipeline with distilled open models. · [code](https://github.com/deepseek-ai/DeepSeek-R1)
+- **[Open-Reasoner-Zero: An Open Source Approach to Scaling Up Reinforcement Learning on the Base Model](https://arxiv.org/abs/2503.24290)** — Jingcheng Hu, Yinmin Zhang, Qi Han, Daxin Jiang, Xiangyu Zhang, Heung-Yeung Shum. *2025*. Open-source reproduction of R1-Zero-style base-model RL scaling, achieving strong reasoning. · [code](https://github.com/Open-Reasoner-Zero/Open-Reasoner-Zero)
 
 ## 5. Frontier Model Technical Reports（前沿模型技术报告）
 
@@ -77,12 +93,23 @@ Recent frontier-model reports describing post-training at scale.
 
 Papers accepted at top-tier venues.
 
-- **[Scaling Behaviors of LLM Reinforcement Learning Post-Training: An Empirical Study in Mathematical Reasoning](https://arxiv.org/abs/2509.25300)** — Zelin Tan, Hejia Geng, Xiaohang Yu, Mulei Zhang, Guancheng Wan, Yifan Zhou, Qiang He, Xiangyuan Xue, Heng Zhou, Yutao Fan, Zhongzhi Li, Zaibin Zhang, Guibin Zhang, Chen Zhang, Zhenfei Yin, Philip Torr, Lei Bai. *ACL 2026 Main Conference*. Empirical scaling study of RL post-training for mathematical reasoning.
+- **[Scaling Behaviors of LLM Reinforcement Learning Post-Training: An Empirical Study in Mathematical Reasoning](https://arxiv.org/abs/2509.25300)** — Zelin Tan, Hejia Geng, Xiaohang Yu, Mulei Zhang, Guancheng Wan, Yifan Zhou, Qiang He, Xiangyuan Xue, Heng Zhou, Yutao Fan, Zhongzhi Li, Zaibin Zhang, Guibin Zhang, Chen Zhang, Zhenfei Yin, Philip Torr, Lei Bai. *ACL 2026 Main Conference*. Empirical scaling study of RL post-training for mathematical reasoning. · [code](https://github.com/tanzelin430/The-Scaling-Law-for-Reinforcement-Learning)
 - **[Nudging the Boundaries of LLM Reasoning](https://arxiv.org/abs/2509.25666)** — Justin Chih-Yao Chen, Becky Xiangyu Peng, Prafulla Kumar Choubey, Kung-Hsiang Huang, Jiaxin Zhang, Mohit Bansal, Chien-Sheng Wu. *ICLR 2026*. **NuRL** — nudges LLM reasoning boundaries via nudging-style RL interventions.
 - **[Training Large Reasoning Models Efficiently via Progressive Thought Encoding](https://arxiv.org/abs/2602.16839)** — Zeliang Zhang, Xiaodong Liu, Hao Cheng, Hao Sun, Chenliang Xu, Jianfeng Gao. *ICLR 2026*. Progressive thought encoding for efficient training of large reasoning models.
 - **[Why Does Reinforcement Learning Generalize? A Feature-Level Mechanistic Study of Post-Training in Large Language Models](https://arxiv.org/abs/2604.25011)** — Dan Shi, Zhuowen Han, Simon Ostermann, Renren Jin, Josef van Genabith, Deyi Xiong. *ACL 2026 Main Conference*. Feature-level mechanistic study of why RL generalizes in LLM post-training.
 
 ---
+
+## Contributing
+
+Contributions are welcome! To add a paper, open a PR that:
+
+1. Places the entry in the most relevant section (follow the existing format).
+2. Links the arXiv abstract (or equivalent).
+3. Includes the full author list, venue (if any), year, and a one-line description.
+4. Adds the `[code]` link to an official implementation when one exists.
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 
 ## Notes
 
@@ -90,4 +117,9 @@ Papers accepted at top-tier venues.
 - **Venue** is shown where the paper is peer-reviewed at a top venue (NeurIPS / ICML / ICLR / ACL); unmarked entries are arXiv preprints / technical reports.
 - Institutional mega-collaborations are credited to the team name (DeepSeek-AI, Kimi Team, NVIDIA, GLM-5-Team) as on the papers themselves.
 - Corresponding PDFs are stored in the numbered subfolders of this repository (folder names match the section titles).
-- Feel free to open an issue or PR to add missing papers.
+
+## License
+
+[![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
+
+To the extent possible under law, the maintainers have waived all copyright and related or neighboring rights to this work.
