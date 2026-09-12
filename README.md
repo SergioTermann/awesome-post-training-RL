@@ -1,5 +1,6 @@
 # Awesome Post-Training RL for LLMs
 
+[![中文](https://img.shields.io/badge/中文-版本-red)](./README.zh-CN.md)
 [![Papers](https://img.shields.io/badge/papers-43-blue)](./README.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
