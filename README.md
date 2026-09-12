@@ -1,7 +1,7 @@
 # Awesome Post-Training RL for LLMs
 
 [![Papers](https://img.shields.io/badge/papers-43-blue)](./README.md)
-[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](./LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
 [![Topics: RLHF | DPO | GRPO](https://img.shields.io/badge/topics-RLHF%20%7C%20DPO%20%7C%20GRPO-orange)](./README.md)
 
@@ -135,6 +135,4 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 
 ## License
 
-[![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
-
-To the extent possible under law, the maintainers have waived all copyright and related or neighboring rights to this work.
+[MIT License](./LICENSE) © 2026 [SergioTermann](https://github.com/SergioTermann)
