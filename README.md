@@ -1,6 +1,6 @@
 # Awesome Post-Training RL for LLMs
 
-[![Papers](https://img.shields.io/badge/papers-35-blue)](./README.md)
+[![Papers](https://img.shields.io/badge/papers-43-blue)](./README.md)
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
 [![Topics: RLHF | DPO | GRPO](https://img.shields.io/badge/topics-RLHF%20%7C%20DPO%20%7C%20GRPO-orange)](./README.md)
@@ -15,7 +15,8 @@ A curated list of papers on **reinforcement learning post-training** for large l
 4. [Reasoning RL Milestones](#4-reasoning-rl-milestones)
 5. [Frontier Model Technical Reports](#5-frontier-model-technical-reports)
 6. [Accepted at Top Conferences](#6-accepted-at-top-conferences)
-7. [Contributing](#contributing)
+7. [Multi-Agent RL & Self-Play](#7-multi-agent-rl--self-play)
+8. [Contributing](#contributing)
 
 ## Overview
 
@@ -27,7 +28,8 @@ A curated list of papers on **reinforcement learning post-training** for large l
 | Reasoning RL Milestones | 3 | R1-Zero, long-CoT |
 | Frontier Model Technical Reports | 3 | GLM-5, DeepSeek-V4, Kimi K3 |
 | Accepted at Top Conferences | 4 | ACL 2026, ICLR 2026 |
-| **Total** | **35** | |
+| Multi-Agent RL & Self-Play | 8 | SPPO, MACPO, self-play, co-evolution |
+| **Total** | **43** | |
 
 ---
 
@@ -98,6 +100,21 @@ Papers accepted at top-tier venues.
 
 ---
 
+## 7. Multi-Agent RL & Self-Play
+
+Multi-agent self-play, debate, and co-evolution for LLM post-training and reasoning. (See also PopuLoRA in §3.)
+
+- **[Self-Play Preference Optimization for Language Model Alignment](https://arxiv.org/abs/2405.00675)** — Yue Wu, Zhiqing Sun, Huizhuo Yuan, Kaixuan Ji, Yiming Yang, Quanquan Gu. *ICLR 2025*. **SPPO** frames preference optimization as a two-player constant-sum game and converges to the Nash equilibrium via iterative self-play, without external supervision. · [code](https://github.com/uclaml/SPPO)
+- **[MACPO: Weak-to-Strong Alignment via Multi-Agent Contrastive Preference Optimization](https://arxiv.org/abs/2410.07672)** — Yougang Lyu, Lingyong Yan, Zihan Wang, Dawei Yin, Pengjie Ren, Maarten de Rijke, Zhaochun Ren. *ICLR 2025*. Weak teachers and strong students learn from each other via positive-behavior augmentation and hard-negative construction for weak-to-strong alignment.
+- **[Self-Improvement of Language Models by Post-Training on Multi-Agent Debate](https://arxiv.org/abs/2509.15172)** — Ankur Samanta, Akshayaa Magesh, Runzhe Wu, Ayush Jain, Youliang Yu, Daniel Jiang, Boris Vidolov, Paul Sajda, Yonathan Efroni, Kaveh Hassani. *2025*. Post-trains a single LM on multi-agent debate trajectories so it internalizes the gains of multi-agent debate.
+- **[OPTAGENT: Optimizing Multi-Agent LLM Interactions Through Verbal Reinforcement Learning for Enhanced Reasoning](https://arxiv.org/abs/2510.18032)** — Zhenyu Bi, Meng Lu, Yang Li, Swastik Roy, Weijie Guan, Morteza Ziyadi, Xuan Wang. *2025*. Verbal RL that dynamically builds and refines multi-agent collaboration structures by evaluating communication quality during debate.
+- **[Tool-R0: Self-Evolving LLM Agents for Tool-Learning from Zero Data](https://arxiv.org/abs/2602.21320)** — Emre Can Acikgoz, Cheng Qian, Jonas Hübotter, Heng Ji, Dilek Hakkani-Tür, Gokhan Tur. *2026*. Zero-data self-play for tool-calling agents, co-evolving a generator and solver with difficulty-guided rewards.
+- **[SAGE: Multi-Agent Self-Evolution for LLM Reasoning](https://arxiv.org/abs/2603.15255)** — Yulin Peng, Xinxin Zhu, Chenxing Wei, Nianbo Zeng, Leilei Wang, Ying Tiffany He, F. Richard Yu. *2026*. Four co-evolving agents (challenger, planner, solver, critic) sharing one backbone, evolved from a small seed set with a critic preventing curriculum drift.
+- **[EvoTrainer: Co-Evolving LLM Policies and Training Harnesses for Autonomous Agentic Reinforcement Learning](https://arxiv.org/abs/2606.03108)** — Guhong Chen, Yingcheng Shi, Yongbin Li, Binhua Li, Xander Xu, Hu Wei, Shiwen Ni, Min Yang, Jieping Ye. *2026*. Co-evolves LLM policies and training harnesses through empirical feedback, accumulating reusable skills.
+- **[J-Zero: Unified Challenger–Solver–Judge Co-Evolution from Zero Data](https://arxiv.org/abs/2608.26582)** — Gyouk Chu, Myeongho Jeon, Eunho Yang. *2026*. Unified challenger–solver–judge co-evolution from zero data. · [code](https://github.com/GyoukChu/J-Zero)
+
+---
+
 ## Contributing
 
 Contributions are welcome! To add a paper, open a PR that:
@@ -114,7 +131,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 - All links point to arXiv abstracts; IDs follow the `YYMM.NNNNN` scheme.
 - **Venue** is shown where the paper is peer-reviewed at a top venue (NeurIPS / ICML / ICLR / ACL); unmarked entries are arXiv preprints / technical reports.
 - Institutional mega-collaborations are credited to the team name (DeepSeek-AI, Kimi Team, NVIDIA, GLM-5-Team) as on the papers themselves.
-- Corresponding PDFs are stored in the numbered subfolders of this repository (folder names match the section titles).
+- Local PDF copies of many papers are stored in the numbered subfolders of this repository (folder names match the section titles).
 
 ## License
 
