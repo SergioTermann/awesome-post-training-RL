@@ -1,11 +1,11 @@
 # Awesome Post-Training RL for LLMs
 
 [![English](https://img.shields.io/badge/English-README-blue)](./README.md)
-[![Papers](https://img.shields.io/badge/papers-43-blue)](./README.zh-CN.md)
+[![Papers](https://img.shields.io/badge/papers-55-blue)](./README.zh-CN.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
 
-LLM（大语言模型）**后训练强化学习**精选论文清单 —— 从 RLHF 奠基，到偏好优化（DPO 系）与 RL 训练框架（GRPO 系），再到推理 RL 里程碑、前沿模型技术报告，以及多智能体 RL 与自博弈。
+LLM（大语言模型）**后训练强化学习**精选论文清单 —— 从 RLHF 奠基，到偏好优化（DPO 系）与 RL 训练框架（GRPO 系），再到推理 RL 里程碑、前沿模型技术报告、多智能体 RL 与自博弈，以及智能体 RL 的多轮交互与工具使用。
 
 ## 目录
 
@@ -16,7 +16,8 @@ LLM（大语言模型）**后训练强化学习**精选论文清单 —— 从 R
 5. 前沿模型技术报告（Frontier Model Technical Reports）
 6. 已录用顶会（Accepted at Top Conferences）
 7. 多智能体 RL 与自博弈（Multi-Agent RL & Self-Play）
-8. 贡献（Contributing）
+8. 智能体 RL · 多轮交互与工具使用（Agentic RL · Multi-Turn & Tool Use）
+9. 贡献（Contributing）
 
 ## 总览
 
@@ -24,12 +25,13 @@ LLM（大语言模型）**后训练强化学习**精选论文清单 —— 从 R
 |---|---|---|
 | RLHF 奠基 | 3 | PPO, RLAIF |
 | 偏好优化 · DPO 系 | 8 | DPO, SPIN, KTO, ORPO, SimPO |
-| RL 训练框架 · GRPO 系 | 14 | GRPO, RLOO, RLVR, DAPO |
+| RL 训练框架 · GRPO 系 | 18 | GRPO, RLOO, RLVR, DAPO |
 | 推理 RL 里程碑 | 3 | R1-Zero, 长 CoT |
 | 前沿模型技术报告 | 3 | GLM-5, DeepSeek-V4, Kimi K3 |
 | 已录用顶会 | 4 | ACL 2026, ICLR 2026 |
 | 多智能体 RL 与自博弈 | 8 | SPPO, MACPO, 自博弈, 协同演化 |
-| **合计** | **43** | |
+| 智能体 RL · 多轮交互与工具使用 | 8 | ARPO, SWEET-RL, AgentGym-RL, CAPO |
+| **合计** | **55** | |
 
 ---
 
@@ -65,12 +67,16 @@ LLM（大语言模型）**后训练强化学习**精选论文清单 —— 从 R
 - **[DAPO: An Open-Source LLM Reinforcement Learning System at Scale](https://arxiv.org/abs/2503.14476)** — Qiying Yu, Zheng Zhang, Ruofei Zhu, Yufeng Yuan, Xiaochen Zuo, Yu Yue, Weinan Dai, Tiantian Fan, Gaohong Liu, Lingjun Liu, Xin Liu, Haibin Lin, Zhiqi Lin, Bole Ma, Guangming Sheng, Yuxuan Tong, Chi Zhang, Mofan Zhang, Wang Zhang, Hang Zhu, Jinhua Zhu, Jiaze Chen, Jiangjie Chen, Chengyi Wang, Hongli Yu, Yuxuan Song, Xiangpeng Wei, Hao Zhou, Jingjing Liu, Wei-Ying Ma, Ya-Qin Zhang, Lin Yan, Mu Qiao, Yonghui Wu, Mingxuan Wang. *2025*. 开源大规模 RL 系统，通过解耦 clip-higher 与动态采样修复 GRPO 的熵坍缩问题。
 - **[GRPO-CARE: Consistency-Aware Reinforcement Learning for Multimodal Reasoning](https://arxiv.org/abs/2506.16141)** — Yi Chen, Yuying Ge, Rui Wang, Yixiao Ge, Junhao Cheng, Ying Shan, Xihui Liu. *2025*. 为 GRPO 增加一致性感知目标，缓解多模态推理中的幻觉。
 - **[STAPO: Stabilizing Reinforcement Learning for LLMs by Silencing Rare Spurious Tokens](https://arxiv.org/abs/2602.15620)** — Shiqi Liu, Zeyu He, Guojian Zhan, Letian Tao, Zhilong Zheng, Jiang Wu, Yinuo Wang, Yang Guan, Kehua Sheng, Bo Zhang, Keqiang Li, Jingliang Duan, Shengbo Eben Li. *2026*. 在策略更新时屏蔽罕见的高方差虚假 token，稳定 RL 训练。
+- **[Buffer Matters: Unleashing the Power of Off-Policy Reinforcement Learning in Large Language Model Reasoning](https://arxiv.org/abs/2602.20722)** — Xu Wan, Yansheng Wang, Wenqi Huang, Mingyang Sun. *2026*. **BAPO** 离策略 RLVR 框架：重估历史困难样本、复用高质量样本，并保有策略改进下界；平均超 GRPO 12.5%。
 - **[Do Post-Training Algorithms Actually Differ? A Controlled Study Across Model Scales Uncovers Scale-Dependent Ranking Inversions](https://arxiv.org/abs/2603.19335)** — Xiaoyi Li. *2026*. 受控研究表明后训练算法排名会随模型规模反转。
 - **[Efficient RL Training for LLMs with Experience Replay](https://arxiv.org/abs/2604.08706)** — Charles Arnal, Vivien Cabannes, Taco Cohen, Julia Kempe, Remi Munos. *2026*. 将经验回放引入 LLM RL，实现样本高效地复用历史 rollout。
+- **[Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization](https://arxiv.org/abs/2605.11491)** — Huimin Xu, Shuai Zhao, Xiaobao Wu, Anh Tuan Luu. *2026*. 从 token 级**熵流**视角解释熵坍缩（降熵 token 持续多于升熵 token）；**OPEFO** 按对熵变的贡献重缩放两类更新，且严格保持同策略。
 - **[DACA-GRPO: Denoising-Aware Credit Assignment for Reinforcement Learning in Diffusion Language Models](https://arxiv.org/abs/2605.16342)** — Amin Karimi Monsefi, Dominic Culver, Nikhil Bhendawade, Lokesh Boominathan, Manuel R. Ciosici, Yizhe Zhang, Irina Belousova. *2026*. 扩散语言模型中 GRPO 的去噪感知信用分配。
 - **[PopuLoRA: Co-Evolving LLM Populations for Reasoning Self-Play](https://arxiv.org/abs/2605.16727)** — Roger Creus Castanyer, Geoffrey Bradway, Lorenz Wolf, Maxwill Lin, Augustine N. Mavor-Parker, Matthew James Sargent. *2026*. 通过自博弈协同演化 LoRA 模块种群以增强推理。
 - **[How Off-Policy Can GRPO Be? Mu-GRPO for Efficient LLM Reinforcement Learning](https://arxiv.org/abs/2605.17570)** — Minghao Tian, Yunfei Xie, Chen Wei. *2026*. 探究 GRPO 的离策略程度，跨多次更新复用 rollout 提升效率。
 - **[Spend Your Rollouts Where It Counts: Rollout Allocation for Group-Based RL Post-Training](https://arxiv.org/abs/2605.26606)** — Woojeong Kim, Ziyi Yang, Jing Nathan Yan, Jialu Liu. *2026*. 动态分配 rollout 预算到最能提升组式 RL 之处。
+- **[Smart Picks in the Dark: Towards Efficient RLVR for Reasoning via Tracing Metacognitive Pivots](https://arxiv.org/abs/2606.04503)** — Guangcheng Zhu, Shenzhi Yang, Haobo Wang, Xing Zheng, Yingfan Ma, Xuening Feng, Zhongqi Chen, Bowen Song, Weiqiang Wang, Gang Chen. *2026*. **PivotTrace** 通过注意力动态追踪元认知 pivot，对无标注数据做三路分流，挑选最值得训练与标注的样本——仅用 29.3% 标注即超越全数据 RLVR。
+- **[Rollout-Level Advantage-Prioritized Experience Replay for GRPO](https://arxiv.org/abs/2606.04560)** — Gyeongtae Yoo, Sanghyeok Park, Soohyuk Jang, Ik-hwan Kim, Sungroh Yoon. *2026*. 面向 GRPO 的 rollout 级经验回放：按年龄淘汰控制陈旧度、以新鲜 rollout 锚定批次，并按优势幅度优先回放。
 - **[Distilled Reinforcement Learning for LLM Post-training](https://arxiv.org/abs/2607.17247)** — Chen Wang, Zhaochun Li, Jionghao Bai, Yining Zhang, Hexuan Deng, Ge Lan, Yue Wang. *2026*. 将 RL 后训练信号蒸馏为高效的 LLM 对齐。
 
 ## 4. 推理 RL 里程碑（Reasoning RL Milestones）
@@ -110,6 +116,19 @@ LLM（大语言模型）**后训练强化学习**精选论文清单 —— 从 R
 - **[SAGE: Multi-Agent Self-Evolution for LLM Reasoning](https://arxiv.org/abs/2603.15255)** — Yulin Peng, Xinxin Zhu, Chenxing Wei, Nianbo Zeng, Leilei Wang, Ying Tiffany He, F. Richard Yu. *2026*. 挑战者 / 规划者 / 求解者 / 评判者四角色共享一个主干协同演化，用评判者防止课程漂移。
 - **[EvoTrainer: Co-Evolving LLM Policies and Training Harnesses for Autonomous Agentic Reinforcement Learning](https://arxiv.org/abs/2606.03108)** — Guhong Chen, Yingcheng Shi, Yongbin Li, Binhua Li, Xander Xu, Hu Wei, Shiwen Ni, Min Yang, Jieping Ye. *2026*. 通过经验反馈协同演化 LLM 策略与训练工具链，积累可复用技能。
 - **[J-Zero: Unified Challenger–Solver–Judge Co-Evolution from Zero Data](https://arxiv.org/abs/2608.26582)** — Gyouk Chu, Myeongho Jeon, Eunho Yang. *2026*. 挑战者–求解者–评判者从零数据的统一协同演化。 · [code](https://github.com/GyoukChu/J-Zero)
+
+## 8. 智能体 RL · 多轮交互与工具使用（Agentic RL · Multi-Turn & Tool Use）
+
+面向多轮、长程 LLM 智能体的 RL：工具调用、跨轮信用分配与智能体训练框架。（另见 §7 的多智能体自博弈。）
+
+- **[SWEET-RL: Training Multi-Turn LLM Agents on Collaborative Reasoning Tasks](https://arxiv.org/abs/2503.15478)** — Yifei Zhou, Song Jiang, Yuandong Tian, Jason Weston, Sergey Levine, Sainbayar Sukhbaatar, Xian Li. *2025*. 提出 **ColBench** 基准；**SWEET-RL** 训练可利用训练时信息的 critic 给出**步级奖励**，解决多轮交互中的信用分配。
+- **[Agentic Reinforced Policy Optimization](https://arxiv.org/abs/2507.19849)** — Guanting Dong, Hangyu Mao, Kai Ma, Licheng Bao, Yifei Chen, Zhongyuan Wang, Zhongxia Chen, Jiazhen Du, Huiyang Wang, Fuzheng Zhang, Guorui Zhou, Yutao Zhu, Ji-Rong Wen, Zhicheng Dou. *2025*. **ARPO** 以基于熵的自适应 rollout 与优势归因，平衡长程推理与多轮工具交互——工具调用预算仅为既有方法的一半。 · [code](https://github.com/dongguanting/ARPO)
+- **[The Landscape of Agentic Reinforcement Learning for LLMs: A Survey](https://arxiv.org/abs/2509.02547)** — Guibin Zhang, Hejia Geng, Xiaohang Yu, Zhenfei Yin, Zaibin Zhang, Zelin Tan, Heng Zhou, Zhongzhi Li, Xiangyuan Xue, Yijiang Li, Yifan Zhou, Yang Chen, Chen Zhang, Yutao Fan, Zihu Wang, Songtao Huang, Francisco Piedrahita-Velez, Yue Liao, Hongru Wang, Mengyue Yang, Heng Ji, Jun Wang, Shuicheng Yan, Philip Torr, Lei Bai. *2025*. 综合五百余篇工作，把 **Agentic RL** 界定为从单步 LLM-RL（MDP）到 POMDP 的范式转变，按规划、工具使用、记忆、推理、自我改进等能力分类。
+- **[AgentGym-RL: Training LLM Agents for Long-Horizon Decision Making through Multi-Turn Reinforcement Learning](https://arxiv.org/abs/2509.08755)** — Zhiheng Xi, Jixuan Huang, Chenyang Liao, Baodai Huang, Honglin Guo, Jiaqi Liu, Rui Zheng, Junjie Ye, Jiazheng Zhang, Wenxiang Chen, Wei He, Yiwen Ding, Guanyu Li, Zehui Chen, Zhengyin Du, Xuesong Yao, Yufei Xu, Jiecao Chen, Tao Gui, Zuxuan Wu, Qi Zhang, Xuanjing Huang, Yu-Gang Jiang. *2025*. 统一框架，无需 SFT、从零开始多轮 RL 训练智能体；**ScalingInter-RL** 渐进放宽交互轮数以平衡探索与利用。 · [code](https://github.com/WooooDyy/AgentGym-RL)
+- **[SkyRL-Agent: Efficient RL Training for Multi-turn LLM Agent](https://arxiv.org/abs/2511.16108)** — Shiyi Cao, Dacheng Li, Fangzhou Zhao, Shuo Yuan, Sumanth R. Hegde, Connor Chen, Charlie Ruan, Tyler Griggs, Shu Liu, Eric Tang, Richard Liaw, Philipp Moritz, Matei Zaharia, Joseph E. Gonzalez, Ion Stoica. *2025*. 异步多轮智能体训练框架；训练出 **SA-SWE-32B**，在 SWE-Bench Verified 达 39.4% Pass@1 且成本降低超过 2 倍。 · [code](https://github.com/NovaSky-AI/SkyRL)
+- **[Demystifying Reinforcement Learning for Long-Horizon Tool-Using Agents: A Comprehensive Recipe](https://arxiv.org/abs/2603.21972)** — Xixi Wu, Qianguo Sun, Ruiyang Zhang, Chao Song, Junlong Wu, Yiyan Qi, Hong Cheng. *2026*. 在 TravelPlanner 上对奖励塑形、模型规模、数据配比、算法与环境稳定性做受控实验，蒸馏出达到 SOTA 的长程工具使用配方。
+- **[From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](https://arxiv.org/abs/2604.09459)** — Chenchen Zhang. *2026*. 综述 69 种**信用分配**方法（2024.01–2026.07），将 token / 步 / 工具调用粒度的选择映射到识别障碍与评测控制。
+- **[CAPO: Critic-Guided Action-Aligned Policy Optimization for Advancing LLM Agent Capabilities](https://arxiv.org/abs/2604.18401)** — Daoyu Wang, Qingchuan Li, Mingyue Cheng, Jie Ouyang, Shuo Yu, Chunli Liu, Shijin Wang, Qi Liu, Enhong Chen. *2026*. **CAPO** 在动作边界估计状态价值，并用长度校准的动作感知策略比率，让信用与更新对齐整个动作而非 token。
 
 ---
 
