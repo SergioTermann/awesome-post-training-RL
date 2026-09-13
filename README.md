@@ -69,15 +69,19 @@ Critic-free policy-gradient methods, training systems, and efficiency/stability 
 - **[GRPO-CARE: Consistency-Aware Reinforcement Learning for Multimodal Reasoning](https://arxiv.org/abs/2506.16141)** — Yi Chen, Yuying Ge, Rui Wang, Yixiao Ge, Junhao Cheng, Ying Shan, Xihui Liu. *2025*. Adds a consistency-aware objective to GRPO for multimodal reasoning, mitigating hallucination.
 - **[STAPO: Stabilizing Reinforcement Learning for LLMs by Silencing Rare Spurious Tokens](https://arxiv.org/abs/2602.15620)** — Shiqi Liu, Zeyu He, Guojian Zhan, Letian Tao, Zhilong Zheng, Jiang Wu, Yinuo Wang, Yang Guan, Kehua Sheng, Bo Zhang, Keqiang Li, Jingliang Duan, Shengbo Eben Li. *2026*. Stabilizes RL by masking rare, high-variance spurious tokens during policy updates.
 - **[Buffer Matters: Unleashing the Power of Off-Policy Reinforcement Learning in Large Language Model Reasoning](https://arxiv.org/abs/2602.20722)** — Xu Wan, Yansheng Wang, Wenqi Huang, Mingyang Sun. *2026*. **BAPO** — off-policy RLVR that reuses past rollouts under an improvement lower bound; +12.5% over GRPO.
+  <img src="figures/bapo_framework.png" width="560" alt="BAPO off-policy rollout and training workflow">
 - **[Do Post-Training Algorithms Actually Differ? A Controlled Study Across Model Scales Uncovers Scale-Dependent Ranking Inversions](https://arxiv.org/abs/2603.19335)** — Xiaoyi Li. *2026*. Controlled study showing post-training algorithm rankings can invert across model scales.
 - **[Efficient RL Training for LLMs with Experience Replay](https://arxiv.org/abs/2604.08706)** — Charles Arnal, Vivien Cabannes, Taco Cohen, Julia Kempe, Remi Munos. *2026*. Brings experience replay to LLM RL for sample-efficient reuse of past rollouts.
 - **[Understanding and Preventing Entropy Collapse in RLVR with On-Policy Entropy Flow Optimization](https://arxiv.org/abs/2605.11491)** — Huimin Xu, Shuai Zhao, Xiaobao Wu, Anh Tuan Luu. *2026*. Attributes entropy collapse to imbalanced token-level **entropy flow**; **OPEFO** rebalances both update types, strictly on-policy.
+  <img src="figures/opefo_entropy_flow.png" width="560" alt="Entropy control mechanisms from the entropy flow perspective">
 - **[DACA-GRPO: Denoising-Aware Credit Assignment for Reinforcement Learning in Diffusion Language Models](https://arxiv.org/abs/2605.16342)** — Amin Karimi Monsefi, Dominic Culver, Nikhil Bhendawade, Lokesh Boominathan, Manuel R. Ciosici, Yizhe Zhang, Irina Belousova. *2026*. Denoising-aware credit assignment for GRPO in diffusion language models.
 - **[PopuLoRA: Co-Evolving LLM Populations for Reasoning Self-Play](https://arxiv.org/abs/2605.16727)** — Roger Creus Castanyer, Geoffrey Bradway, Lorenz Wolf, Maxwill Lin, Augustine N. Mavor-Parker, Matthew James Sargent. *2026*. Co-evolves a population of LoRA modules through self-play for reasoning.
 - **[How Off-Policy Can GRPO Be? Mu-GRPO for Efficient LLM Reinforcement Learning](https://arxiv.org/abs/2605.17570)** — Minghao Tian, Yunfei Xie, Chen Wei. *2026*. Investigates how far GRPO can go off-policy; reuses rollouts across multiple updates for efficiency.
 - **[Spend Your Rollouts Where It Counts: Rollout Allocation for Group-Based RL Post-Training](https://arxiv.org/abs/2605.26606)** — Woojeong Kim, Ziyi Yang, Jing Nathan Yan, Jialu Liu. *2026*. Dynamically allocates the rollout budget toward where it improves group-based RL the most.
 - **[Smart Picks in the Dark: Towards Efficient RLVR for Reasoning via Tracing Metacognitive Pivots](https://arxiv.org/abs/2606.04503)** — Guangcheng Zhu, Shenzhi Yang, Haobo Wang, Xing Zheng, Yingfan Ma, Xuening Feng, Zhongqi Chen, Bowen Song, Weiqiang Wang, Gang Chen. *2026*. **PivotTrace** triages unlabeled data via attention dynamics; 29.3% of annotations beats full-data RLVR.
+  <img src="figures/pivottrace_framework.png" width="560" alt="PivotTrace framework overview">
 - **[Rollout-Level Advantage-Prioritized Experience Replay for GRPO](https://arxiv.org/abs/2606.04560)** — Gyeongtae Yoo, Sanghyeok Park, Soohyuk Jang, Ik-hwan Kim, Sungroh Yoon. *2026*. Rollout-level replay buffer for GRPO with age eviction and advantage-prioritized replay.
+  <img src="figures/rollout_replay_paradigms.png" width="560" alt="On-policy GRPO vs replay-based post-training paradigms">
 - **[Distilled Reinforcement Learning for LLM Post-training](https://arxiv.org/abs/2607.17247)** — Chen Wang, Zhaochun Li, Jionghao Bai, Yining Zhang, Hexuan Deng, Ge Lan, Yue Wang. *2026*. Distills RL post-training signals into efficient LLM alignment.
 
 ## 4. Reasoning RL Milestones
@@ -125,13 +129,21 @@ Multi-agent self-play, debate, and co-evolution for LLM post-training and reason
 RL for multi-turn, long-horizon LLM agents: tool use, turn-level credit assignment, and training frameworks.
 
 - **[SWEET-RL: Training Multi-Turn LLM Agents on Collaborative Reasoning Tasks](https://arxiv.org/abs/2503.15478)** — Yifei Zhou, Song Jiang, Yuandong Tian, Jason Weston, Sergey Levine, Sainbayar Sukhbaatar, Xian Li. *2025*. **ColBench** benchmark; a critic with training-time information provides **step-level rewards** for multi-turn agents.
+  <img src="figures/sweet_rl_overview.png" width="560" alt="SWEET-RL: step-wise critic training and policy improvement">
 - **[Agentic Reinforced Policy Optimization](https://arxiv.org/abs/2507.19849)** — Guanting Dong, Hangyu Mao, Kai Ma, Licheng Bao, Yifei Chen, Zhongyuan Wang, Zhongxia Chen, Jiazhen Du, Huiyang Wang, Fuzheng Zhang, Guorui Zhou, Yutao Zhu, Ji-Rong Wen, Zhicheng Dou. *2025*. **ARPO** balances long-horizon reasoning and multi-turn tool use via entropy-based adaptive rollouts, at half the tool-call budget. · [code](https://github.com/dongguanting/ARPO)
+  <img src="figures/arpo_workflow.png" width="560" alt="ARPO algorithm overview">
 - **[The Landscape of Agentic Reinforcement Learning for LLMs: A Survey](https://arxiv.org/abs/2509.02547)** — Guibin Zhang, Hejia Geng, Xiaohang Yu, Zhenfei Yin, Zaibin Zhang, Zelin Tan, Heng Zhou, Zhongzhi Li, Xiangyuan Xue, Yijiang Li, Yifan Zhou, Yang Chen, Chen Zhang, Yutao Fan, Zihu Wang, Songtao Huang, Francisco Piedrahita-Velez, Yue Liao, Hongru Wang, Mengyue Yang, Heng Ji, Jun Wang, Shuicheng Yan, Philip Torr, Lei Bai. *2025*. Survey of 500+ works framing **Agentic RL** as the shift from single-step MDPs to POMDPs.
+  <img src="figures/agentic_rl_survey_paradigm.jpg" width="560" alt="Paradigm shift from LLM RL to Agentic RL">
 - **[AgentGym-RL: Training LLM Agents for Long-Horizon Decision Making through Multi-Turn Reinforcement Learning](https://arxiv.org/abs/2509.08755)** — Zhiheng Xi, Jixuan Huang, Chenyang Liao, Baodai Huang, Honglin Guo, Jiaqi Liu, Rui Zheng, Junjie Ye, Jiazheng Zhang, Wenxiang Chen, Wei He, Yiwen Ding, Guanyu Li, Zehui Chen, Zhengyin Du, Xuesong Yao, Yufei Xu, Jiecao Chen, Tao Gui, Zuxuan Wu, Qi Zhang, Xuanjing Huang, Yu-Gang Jiang. *2025*. Unified framework for multi-turn RL **from scratch (no SFT)**; **ScalingInter-RL** gradually widens interaction horizons. · [code](https://github.com/WooooDyy/AgentGym-RL)
+  <img src="figures/agentgym_framework.png" width="560" alt="AgentGym-RL framework: rollout, environment server, and policy update">
 - **[SkyRL-Agent: Efficient RL Training for Multi-turn LLM Agent](https://arxiv.org/abs/2511.16108)** — Shiyi Cao, Dacheng Li, Fangzhou Zhao, Shuo Yuan, Sumanth R. Hegde, Connor Chen, Charlie Ruan, Tyler Griggs, Shu Liu, Eric Tang, Richard Liaw, Philipp Moritz, Matei Zaharia, Joseph E. Gonzalez, Ion Stoica. *2025*. Async multi-turn training framework; **SA-SWE-32B** reaches 39.4% on SWE-Bench Verified at 2× lower cost. · [code](https://github.com/NovaSky-AI/SkyRL)
+  <img src="figures/skyrl_agent_architecture.png" width="560" alt="SkyRL-Agent architecture overview">
 - **[Demystifying Reinforcement Learning for Long-Horizon Tool-Using Agents: A Comprehensive Recipe](https://arxiv.org/abs/2603.21972)** — Xixi Wu, Qianguo Sun, Ruiyang Zhang, Chao Song, Junlong Wu, Yiyan Qi, Hong Cheng. *2026*. Controlled study on TravelPlanner; distills a SOTA recipe for long-horizon tool use.
+  <img src="figures/star_pipeline.png" width="560" alt="STAR pipeline for long-horizon tool-use RL">
 - **[From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](https://arxiv.org/abs/2604.09459)** — Chenchen Zhang. *2026*. Survey of 69 **credit-assignment** methods across token / step / tool-call granularities.
+  <img src="figures/ca_survey_evolution.png" width="560" alt="Evolution of RL for LLMs and credit assignment challenges">
 - **[CAPO: Critic-Guided Action-Aligned Policy Optimization for Advancing LLM Agent Capabilities](https://arxiv.org/abs/2604.18401)** — Daoyu Wang, Qingchuan Li, Mingyue Cheng, Jie Ouyang, Shuo Yu, Chunli Liu, Shijin Wang, Qi Liu, Enhong Chen. *2026*. **CAPO** estimates value at action boundaries and applies an action-aware ratio, aligning credit with whole actions.
+  <img src="figures/capo_framework.png" width="560" alt="CAPO framework: action-aligned credit and updates">
 
 ---
 
@@ -152,6 +164,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 - **Venue** is shown where the paper is peer-reviewed at a top venue (NeurIPS / ICML / ICLR / ACL); unmarked entries are arXiv preprints / technical reports.
 - Institutional mega-collaborations are credited to the team name (DeepSeek-AI, Kimi Team, NVIDIA, GLM-5-Team) as on the papers themselves.
 - Local PDF copies of many papers are stored in the numbered subfolders of this repository (folder names match the section titles).
+- Key figures embedded below entries are taken from the papers' arXiv HTML versions or official repositories (see [`figures/`](./figures/)).
 
 ## License
 
