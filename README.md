@@ -67,6 +67,7 @@ Direct / closed-form alignment objectives that sidestep the reward model + PPO m
   <p align="center"><img src="figures/nemotron_w2s.svg" width="560" alt="Nemotron-4 iterative weak-to-strong workflow"></p>
 - **[GDPO: Group reward-Decoupled Normalization Policy Optimization for Multi-reward RL Optimization](https://arxiv.org/abs/2601.05242)** — Shih-Yang Liu, Xin Dong, Ximing Lu, Shizhe Diao, Peter Belcak, Mingjie Liu, Min-Hung Chen, Hongxu Yin, Yu-Chiang Frank Wang, Kwang-Ting Cheng, Yejin Choi, Jan Kautz, Pavlo Molchanov. *2026*. Decouples multi-reward signals per group and normalizes them before optimization to stabilize multi-objective RL.
   <p align="center"><img src="figures/gdpo_teaser.png" width="560" alt="GDPO overview"></p>
+- **[SP^2DPO: An LLM-assisted Semantic Per-Pair DPO Generalization](https://arxiv.org/abs/2601.22385)** — Chaoyue He, Xin Zhou, Di Wang, Hong Xu, Wei Liu, Chunyan Miao. *2026*. Replaces DPO's single global β with per-pair temperatures β_i set offline from teacher-LLM semantic-gap annotations (category, magnitude, confidence), instantiated on 59,960 UltraFeedback pairs.
 
 ## 3. RL Training Frameworks · GRPO Family
 
