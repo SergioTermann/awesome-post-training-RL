@@ -1,7 +1,7 @@
 # Awesome Post-Training RL for LLMs
 
 [![English](https://img.shields.io/badge/English-README-blue)](./README.md)
-[![Papers](https://img.shields.io/badge/papers-55-blue)](./README.zh-CN.md)
+[![Papers](https://img.shields.io/badge/papers-57-blue)](./README.zh-CN.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
 
@@ -24,14 +24,14 @@ LLM（大语言模型）**后训练强化学习**精选论文清单 —— 从 R
 | 分类 | 论文数 | 代表方法 |
 |---|---|---|
 | RLHF 奠基 | 3 | PPO, RLAIF |
-| 偏好优化 · DPO 系 | 8 | DPO, SPIN, KTO, ORPO, SimPO |
+| 偏好优化 · DPO 系 | 9 | DPO, SPIN, KTO, ORPO, SimPO |
 | RL 训练框架 · GRPO 系 | 18 | GRPO, RLOO, RLVR, DAPO |
 | 推理 RL 里程碑 | 3 | R1-Zero, 长 CoT |
 | 前沿模型技术报告 | 3 | GLM-5, DeepSeek-V4, Kimi K3 |
 | 已录用顶会 | 4 | ACL 2026, ICLR 2026 |
 | 多智能体 RL 与自博弈 | 8 | SPPO, MACPO, 自博弈, 协同演化 |
-| 智能体 RL · 多轮交互与工具使用 | 8 | ARPO, SWEET-RL, AgentGym-RL, CAPO |
-| **合计** | **55** | |
+| 智能体 RL · 多轮交互与工具使用 | 9 | ARPO, SWEET-RL, AgentGym-RL, CAPO |
+| **合计** | **57** | |
 
 ---
 
@@ -64,6 +64,8 @@ LLM（大语言模型）**后训练强化学习**精选论文清单 —— 从 R
   <p align="center"><img src="figures/simpo_teaser.svg" width="560" alt="SimPO vs. DPO reward formulation"></p>
 - **[Nemotron-4 340B Technical Report](https://arxiv.org/abs/2406.11704)** — NVIDIA. *2024*. 开放的 340B 基座 / 指令 / 奖励模型，展示 HelpSteer2 奖励建模与迭代 DPO 对齐。
   <p align="center"><img src="figures/nemotron_w2s.svg" width="560" alt="Nemotron-4 iterative weak-to-strong workflow"></p>
+- **[Chunks as Arms: Multi-Armed Bandit-Guided Sampling for Long-Context LLM Preference Optimization](https://arxiv.org/abs/2508.13993)** — Shaohua Duan, Pengcheng Huang, Xinze Li, Zhenghao Liu, Xiaoyuan Yi, Yukun Yan, Shuo Wang, Yu Gu, Ge Yu, Maosong Sun. *ACL 2026 Main Conference (Oral)*. **LongMab-PO** 将上下文 chunk 视为多臂老虎机的臂，挑选信息量高的 chunk 来采样高质量、多样的回答，构造长上下文 **DPO** 偏好对。 · [code](https://github.com/NEUIR/LongMab-PO)
+  <p align="center"><img src="figures/longmab_po_framework.png" width="560" alt="LongMab-PO：在上下文 chunk 上做多臂老虎机采样并用于 DPO"></p>
 - **[GDPO: Group reward-Decoupled Normalization Policy Optimization for Multi-reward RL Optimization](https://arxiv.org/abs/2601.05242)** — Shih-Yang Liu, Xin Dong, Ximing Lu, Shizhe Diao, Peter Belcak, Mingjie Liu, Min-Hung Chen, Hongxu Yin, Yu-Chiang Frank Wang, Kwang-Ting Cheng, Yejin Choi, Jan Kautz, Pavlo Molchanov. *2026*. 按组解耦多奖励信号并归一化后再优化，稳定多目标 RL。
   <p align="center"><img src="figures/gdpo_teaser.png" width="560" alt="GDPO overview"></p>
 
@@ -178,6 +180,8 @@ LLM（大语言模型）**后训练强化学习**精选论文清单 —— 从 R
   <p align="center"><img src="figures/agentgym_framework.png" width="560" alt="AgentGym-RL 框架：rollout、环境服务与策略更新"></p>
 - **[SkyRL-Agent: Efficient RL Training for Multi-turn LLM Agent](https://arxiv.org/abs/2511.16108)** — Shiyi Cao, Dacheng Li, Fangzhou Zhao, Shuo Yuan, Sumanth R. Hegde, Connor Chen, Charlie Ruan, Tyler Griggs, Shu Liu, Eric Tang, Richard Liaw, Philipp Moritz, Matei Zaharia, Joseph E. Gonzalez, Ion Stoica. *2025*. 异步多轮训练框架；**SA-SWE-32B** 在 SWE-Bench Verified 达 39.4%，成本减半。 · [code](https://github.com/NovaSky-AI/SkyRL)
   <p align="center"><img src="figures/skyrl_agent_architecture.png" width="560" alt="SkyRL-Agent 架构总览"></p>
+- **[Teaching LLMs to Learn Tool Trialing and Execution through Environment Interaction](https://arxiv.org/abs/2601.12762)** — Xingjie Gao, Pengcheng Huang, Zhenghao Liu, Yukun Yan, Shuo Wang, Zulong Chen, Chen Qian, Ge Yu, Yu Gu. *2026*. **ToolMaster** 把工具学习从模仿标准调用轨迹转向「先试用、再执行」的范式：先在教师生成的、含显式工具试用与自我纠错的轨迹上做 SFT，再用 **GRPO** 通过环境交互联合协调试用与执行两个阶段。 · [code](https://github.com/NEUIR/ToolMaster)
+  <p align="center"><img src="figures/toolmaster_framework.png" width="560" alt="ToolMaster 试用—执行框架"></p>
 - **[Demystifying Reinforcement Learning for Long-Horizon Tool-Using Agents: A Comprehensive Recipe](https://arxiv.org/abs/2603.21972)** — Xixi Wu, Qianguo Sun, Ruiyang Zhang, Chao Song, Junlong Wu, Yiyan Qi, Hong Cheng. *2026*. 在 TravelPlanner 上做受控实验，蒸馏出 SOTA 的长程工具使用配方。
   <p align="center"><img src="figures/star_pipeline.png" width="560" alt="STAR 长程工具使用 RL 流水线"></p>
 - **[From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](https://arxiv.org/abs/2604.09459)** — Chenchen Zhang. *2026*. 综述 69 种**信用分配**方法，覆盖 token / 步 / 工具调用粒度。

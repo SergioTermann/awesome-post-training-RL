@@ -1,7 +1,7 @@
 # Awesome Post-Training RL for LLMs
 
 [![中文](https://img.shields.io/badge/中文-版本-red)](./README.zh-CN.md)
-[![Papers](https://img.shields.io/badge/papers-55-blue)](./README.md)
+[![Papers](https://img.shields.io/badge/papers-57-blue)](./README.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
 [![Topics: RLHF | DPO | GRPO](https://img.shields.io/badge/topics-RLHF%20%7C%20DPO%20%7C%20GRPO-orange)](./README.md)
@@ -25,14 +25,14 @@ A curated list of papers on **reinforcement learning post-training** for large l
 | Category | Papers | Key methods |
 |---|---|---|
 | Foundations of RLHF | 3 | PPO, RLAIF |
-| Preference Optimization · DPO Family | 8 | DPO, SPIN, KTO, ORPO, SimPO |
+| Preference Optimization · DPO Family | 9 | DPO, SPIN, KTO, ORPO, SimPO |
 | RL Training Frameworks · GRPO Family | 18 | GRPO, RLOO, RLVR, DAPO |
 | Reasoning RL Milestones | 3 | R1-Zero, long-CoT |
 | Frontier Model Technical Reports | 3 | GLM-5, DeepSeek-V4, Kimi K3 |
 | Accepted at Top Conferences | 4 | ACL 2026, ICLR 2026 |
 | Multi-Agent RL & Self-Play | 8 | SPPO, MACPO, self-play, co-evolution |
-| Agentic RL · Multi-Turn & Tool Use | 8 | ARPO, SWEET-RL, AgentGym-RL, CAPO |
-| **Total** | **55** | |
+| Agentic RL · Multi-Turn & Tool Use | 9 | ARPO, SWEET-RL, AgentGym-RL, CAPO |
+| **Total** | **57** | |
 
 ---
 
@@ -65,6 +65,8 @@ Direct / closed-form alignment objectives that sidestep the reward model + PPO m
   <p align="center"><img src="figures/simpo_teaser.svg" width="560" alt="SimPO vs. DPO reward formulation"></p>
 - **[Nemotron-4 340B Technical Report](https://arxiv.org/abs/2406.11704)** — NVIDIA. *2024*. Open 340B base/instruct/reward models; demonstrates HelpSteer2 reward modeling and iterative DPO for alignment.
   <p align="center"><img src="figures/nemotron_w2s.svg" width="560" alt="Nemotron-4 iterative weak-to-strong workflow"></p>
+- **[Chunks as Arms: Multi-Armed Bandit-Guided Sampling for Long-Context LLM Preference Optimization](https://arxiv.org/abs/2508.13993)** — Shaohua Duan, Pengcheng Huang, Xinze Li, Zhenghao Liu, Xiaoyuan Yi, Yukun Yan, Shuo Wang, Yu Gu, Ge Yu, Maosong Sun. *ACL 2026 Main Conference (Oral)*. **LongMab-PO** treats context chunks as bandit arms to sample informative chunks and build high-quality, diverse preference pairs for long-context **DPO**. · [code](https://github.com/NEUIR/LongMab-PO)
+  <p align="center"><img src="figures/longmab_po_framework.png" width="560" alt="LongMab-PO: multi-armed bandit rollout over context chunks for DPO"></p>
 - **[GDPO: Group reward-Decoupled Normalization Policy Optimization for Multi-reward RL Optimization](https://arxiv.org/abs/2601.05242)** — Shih-Yang Liu, Xin Dong, Ximing Lu, Shizhe Diao, Peter Belcak, Mingjie Liu, Min-Hung Chen, Hongxu Yin, Yu-Chiang Frank Wang, Kwang-Ting Cheng, Yejin Choi, Jan Kautz, Pavlo Molchanov. *2026*. Decouples multi-reward signals per group and normalizes them before optimization to stabilize multi-objective RL.
   <p align="center"><img src="figures/gdpo_teaser.png" width="560" alt="GDPO overview"></p>
 
@@ -181,6 +183,8 @@ RL for multi-turn, long-horizon LLM agents: tool use, turn-level credit assignme
   <p align="center"><img src="figures/agentgym_framework.png" width="560" alt="AgentGym-RL framework: rollout, environment server, and policy update"></p>
 - **[SkyRL-Agent: Efficient RL Training for Multi-turn LLM Agent](https://arxiv.org/abs/2511.16108)** — Shiyi Cao, Dacheng Li, Fangzhou Zhao, Shuo Yuan, Sumanth R. Hegde, Connor Chen, Charlie Ruan, Tyler Griggs, Shu Liu, Eric Tang, Richard Liaw, Philipp Moritz, Matei Zaharia, Joseph E. Gonzalez, Ion Stoica. *2025*. Async multi-turn training framework; **SA-SWE-32B** reaches 39.4% on SWE-Bench Verified at 2× lower cost. · [code](https://github.com/NovaSky-AI/SkyRL)
   <p align="center"><img src="figures/skyrl_agent_architecture.png" width="560" alt="SkyRL-Agent architecture overview"></p>
+- **[Teaching LLMs to Learn Tool Trialing and Execution through Environment Interaction](https://arxiv.org/abs/2601.12762)** — Xingjie Gao, Pengcheng Huang, Zhenghao Liu, Yukun Yan, Shuo Wang, Zulong Chen, Chen Qian, Ge Yu, Yu Gu. *2026*. **ToolMaster** shifts tool learning from imitating golden trajectories to a trial-and-execution paradigm: SFT on teacher trajectories with explicit tool trials and self-correction, then **GRPO** to coordinate trial and execution through environment interaction. · [code](https://github.com/NEUIR/ToolMaster)
+  <p align="center"><img src="figures/toolmaster_framework.png" width="560" alt="ToolMaster trial-and-execution framework"></p>
 - **[Demystifying Reinforcement Learning for Long-Horizon Tool-Using Agents: A Comprehensive Recipe](https://arxiv.org/abs/2603.21972)** — Xixi Wu, Qianguo Sun, Ruiyang Zhang, Chao Song, Junlong Wu, Yiyan Qi, Hong Cheng. *2026*. Controlled study on TravelPlanner; distills a SOTA recipe for long-horizon tool use.
   <p align="center"><img src="figures/star_pipeline.png" width="560" alt="STAR pipeline for long-horizon tool-use RL"></p>
 - **[From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](https://arxiv.org/abs/2604.09459)** — Chenchen Zhang. *2026*. Survey of 69 **credit-assignment** methods across token / step / tool-call granularities.
