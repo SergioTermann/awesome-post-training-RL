@@ -26,13 +26,13 @@ A curated list of papers on **reinforcement learning post-training** for large l
 |---|---|---|
 | Foundations of RLHF | 3 | PPO, RLAIF |
 | Preference Optimization · DPO Family | 8 | DPO, SPIN, KTO, ORPO, SimPO |
-| RL Training Frameworks · GRPO Family | 18 | GRPO, RLOO, RLVR, DAPO |
+| RL Training Frameworks · GRPO Family | 19 | GRPO, RLOO, RLVR, DAPO |
 | Reasoning RL Milestones | 3 | R1-Zero, long-CoT |
 | Frontier Model Technical Reports | 3 | GLM-5, DeepSeek-V4, Kimi K3 |
 | Accepted at Top Conferences | 4 | ACL 2026, ICLR 2026 |
 | Multi-Agent RL & Self-Play | 8 | SPPO, MACPO, self-play, co-evolution |
 | Agentic RL · Multi-Turn & Tool Use | 8 | ARPO, SWEET-RL, AgentGym-RL, CAPO |
-| **Total** | **55** | |
+| **Total** | **56** | |
 
 ---
 
@@ -108,6 +108,7 @@ Critic-free policy-gradient methods, training systems, and efficiency/stability 
   <p align="center"><img src="figures/rollout_replay_paradigms.png" width="560" alt="On-policy GRPO vs replay-based post-training paradigms"></p>
 - **[Distilled Reinforcement Learning for LLM Post-training](https://arxiv.org/abs/2607.17247)** — Chen Wang, Zhaochun Li, Jionghao Bai, Yining Zhang, Hexuan Deng, Ge Lan, Yue Wang. *2026*. Distills RL post-training signals into efficient LLM alignment.
   <p align="center"><img src="figures/distilled_rl_overview.png" width="560" alt="Distilled RL overview"></p>
+- **[SPADER: Step-wise Peer Advantage with Diversity-Aware Exploration Rewards for Multi-Answer Question Answering](https://arxiv.org/abs/2606.00593)** — Qiming Shi, Zhaolu Kang, Yunfan Zhou, Di Weng, Yingcai Wu. *EMNLP 2026*. Aligns parallel search trajectories by decision step and estimates critic-free advantages from peer returns; a diversity-aware reward encourages discovery of rare correct answers. · [code](https://github.com/KhanCold/spader)
 
 ## 4. Reasoning RL Milestones
 
